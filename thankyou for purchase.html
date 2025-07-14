@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You!</title>
+  <style>
+    body {
+      background: #0d0d0d;
+      color: #e0e0ff;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .box {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: center;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background: #8e44ad;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #a84de2;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Thank you for your purchase!</h1>
+    <p>Enter your email below to receive your business plan document:</p>
+    <form action="https://formspree.io/f/movlarjq" method="POST">
+      <input type="email" name="email" placeholder="your@example.com" required />
+      <button type="submit">Send me my document</button>
+    </form>
+  </div>
+</body>
+</html>
