@@ -1,0 +1,131 @@
+hb
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Realistic Seed to Glowing Flower</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .plant-container {
+      position: relative;
+      width: 200px;
+      height: 400px;
+    }
+
+    .seed {
+      width: 20px;
+      height: 28px;
+      background: radial-gradient(circle, #8a2be2, #4b0082);
+      border-radius: 50% 50% 60% 60%;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px #8a2be2;
+      animation: seedGrow 2s ease-in-out forwards;
+    }
+
+    @keyframes seedGrow {
+      0% { transform: translateX(-50%) scale(1); }
+      100% { transform: translateX(-50%) scale(0); opacity: 0; }
+    }
+
+    .stem {
+      width: 6px;
+      height: 0;
+      background: linear-gradient(to top, #7b68ee, #00ffff);
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0 0 8px #7fffd4;
+      animation: stemGrow 3s 1.8s forwards;
+    }
+
+    @keyframes stemGrow {
+      to { height: 180px; }
+    }
+
+    .leaf {
+      position: absolute;
+      width: 40px;
+      height: 25px;
+      background: radial-gradient(ellipse at center, #00ffcc, #006699);
+      border-radius: 50% 50% 40% 40%;
+      opacity: 0;
+      box-shadow: 0 0 12px #00ffff;
+      animation: leafGrow 1s 3.5s forwards;
+    }
+
+    .leaf.left {
+      left: 20%;
+      bottom: 120px;
+      transform: rotate(-35deg);
+    }
+
+    .leaf.right {
+      right: 20%;
+      bottom: 140px;
+      transform: rotate(35deg);
+    }
+
+    @keyframes leafGrow {
+      to { opacity: 1; }
+    }
+
+    .flower {
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle, #ff00ff, #8a2be2);
+      border-radius: 50%;
+      position: absolute;
+      bottom: 200px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      box-shadow: 0 0 20px #ff00ff;
+      animation: flowerBloom 1.5s 4.5s forwards;
+    }
+
+    .flower::before, .flower::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 0, 255, 0.7), transparent);
+      animation: petalPulse 2s infinite ease-in-out;
+    }
+
+    .flower::after {
+      transform: rotate(45deg);
+    }
+
+    @keyframes flowerBloom {
+      to { transform: translateX(-50%) scale(1); }
+    }
+
+    @keyframes petalPulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.2); opacity: 0.3; }
+    }
+  </style>
+</head>
+<body>
+  <div class="plant-container">
+    <div class="seed"></div>
+    <div class="stem"></div>
+    <div class="leaf left"></div>
+    <div class="leaf right"></div>
+    <div class="flower"></div>
+  </div>
+</body>
+</html>
